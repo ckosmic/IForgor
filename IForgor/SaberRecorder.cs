@@ -27,7 +27,6 @@ namespace IForgor
 
 		private void OnEnable() {
 			Saber[] sabers = Resources.FindObjectsOfTypeAll<Saber>();
-			Plugin.Log.Info(sabers.Length.ToString());
 			if (sabers[0].saberType == SaberType.SaberA) {
 				_saberA = sabers[0];
 				_saberB = sabers[1];

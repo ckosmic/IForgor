@@ -121,7 +121,6 @@ namespace IForgor
 				float cutAngle = Mathf.Atan2(cutDirection.y, cutDirection.x) * Mathf.Rad2Deg + 270.0f;
 				cutAngleImage.enabled = true;
 				cutAngleImage.rectTransform.rotation = Quaternion.Euler(new Vector3(0f, 0f, cutAngle));
-				Plugin.Log.Info(cutAngle.ToString());
 			} else {
 				cutAngleImage.enabled = false;
 			}
