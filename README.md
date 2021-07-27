@@ -1,6 +1,6 @@
-# IForgor
+# I Forgor
 
-A Beat Saber mod that displays the last notes and saber angles before you paused in the pause menu.  This is aimed to help you not forget which direction your sabers are supposed to go.
+A Beat Saber mod that displays the last notes and saber angles before you paused in the pause menu.  This is aimed to help you not forget which direction your sabers are supposed to go.  Funny epic name courtesy of Kinsi.
 
 ![Screenshot 1](Images/screenshot.jpg)
 
