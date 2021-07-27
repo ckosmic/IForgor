@@ -1,11 +1,11 @@
 ﻿{
   "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
-  "id": "IForgor",
+  "id": "I Forgor",
   "name": "IForgor",
   "author": "ckosmic",
   "version": "1.0.0",
-  "description": "Never forget your saber positions when paused again.",
-  "gameVersion": "1.16.3",
+  "description": "A mod that displays the last notes and saber angles before you paused in the pause menu.",
+  "gameVersion": "1.16.4",
   "dependsOn": {
     "BSIPA": "^4.1.6",
     "BeatSaberMarkupLanguage": "^1.5.3",

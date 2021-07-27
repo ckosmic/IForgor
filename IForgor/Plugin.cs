@@ -47,7 +47,6 @@ namespace IForgor
 		public void OnApplicationStart() {
 			Log.Debug("OnApplicationStart");
 			BSEvents.gameSceneLoaded += OnGameSceneLoaded;
-			BSEvents.songPaused += OnPaused;
 
 		}
 
@@ -55,7 +54,6 @@ namespace IForgor
 		public void OnApplicationQuit() {
 			Log.Debug("OnApplicationQuit");
 			BSEvents.gameSceneLoaded -= OnGameSceneLoaded;
-			BSEvents.songPaused -= OnPaused;
 		}
 
 		private void OnGameSceneLoaded() {
@@ -67,10 +65,6 @@ namespace IForgor
 			NoteRecorder.instance.noteBData = null;
 			NoteRecorder.instance.noteACutInfo = null;
 			NoteRecorder.instance.noteBCutInfo = null;
-		}
-
-		private void OnPaused() {
-			
 		}
 	}
 }

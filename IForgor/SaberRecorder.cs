@@ -48,7 +48,6 @@ namespace IForgor
 			saberVector.Normalize();
 
 			saberAngle = Mathf.Atan2(saberVector.y, saberVector.x) * Mathf.Rad2Deg;
-			//Plugin.Log.Info("Angle " + saber.saberType + ": " + saberAngle.ToString());
 		}
 	}
 }
