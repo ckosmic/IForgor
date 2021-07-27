@@ -1,0 +1,17 @@
+﻿{
+  "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
+  "id": "IForgor",
+  "name": "IForgor",
+  "author": "ckosmic",
+  "version": "1.0.0",
+  "description": "Never forget your saber positions when paused again.",
+  "gameVersion": "1.16.3",
+  "dependsOn": {
+    "BSIPA": "^4.1.6",
+    "BeatSaberMarkupLanguage": "^1.5.3",
+    "BS Utils": "^1.10.0"
+  },
+  "links": {
+    "project-source": "https://github.com/ckosmic/IForgor"
+  }
+}
