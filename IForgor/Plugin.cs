@@ -28,7 +28,6 @@ namespace IForgor
 		public void Init(IPALogger logger) {
 			Instance = this;
 			Log = logger;
-			Log.Info("IForgor initialized.");
 		}
 
 		#region BSIPA Config
@@ -45,14 +44,12 @@ namespace IForgor
 
 		[OnStart]
 		public void OnApplicationStart() {
-			Log.Debug("OnApplicationStart");
 			BSEvents.gameSceneLoaded += OnGameSceneLoaded;
 
 		}
 
 		[OnExit]
 		public void OnApplicationQuit() {
-			Log.Debug("OnApplicationQuit");
 			BSEvents.gameSceneLoaded -= OnGameSceneLoaded;
 		}
 
