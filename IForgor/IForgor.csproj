@@ -104,12 +104,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NoteRecorder.cs" />
-    <Compile Include="PauseUIManager.cs" />
+    <Compile Include="Recorders\NoteRecorder.cs" />
+    <Compile Include="UI\PauseUIManager.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaberRecorder.cs" />
-    <Compile Include="UIGroup.cs" />
+    <Compile Include="Recorders\SaberRecorder.cs" />
+    <Compile Include="UI\UIGroup.cs" />
     <Compile Include="Utils\ResourceUtilities.cs" />
   </ItemGroup>
   <ItemGroup>

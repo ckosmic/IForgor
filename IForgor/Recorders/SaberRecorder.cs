@@ -26,14 +26,9 @@ namespace IForgor
 		}
 
 		private void OnEnable() {
-			Saber[] sabers = Resources.FindObjectsOfTypeAll<Saber>();
-			if (sabers[0].saberType == SaberType.SaberA) {
-				_saberA = sabers[0];
-				_saberB = sabers[1];
-			} else {
-				_saberA = sabers[1];
-				_saberB = sabers[0];
-			}
+			SaberManager saberManager = Resources.FindObjectsOfTypeAll<SaberManager>().First();
+			_saberA = saberManager.leftSaber;
+			_saberB = saberManager.rightSaber;
 		}
 
 		public void RecordSaberAngles() {

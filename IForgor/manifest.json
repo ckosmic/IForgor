@@ -3,11 +3,11 @@
   "id": "I Forgor",
   "name": "IForgor",
   "author": "ckosmic",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A mod that displays the last notes and saber angles before you paused in the pause menu.",
   "gameVersion": "1.16.3",
   "dependsOn": {
-    "BSIPA": "^4.1.6",
+    "BSIPA": "^4.2.0",
     "BeatSaberMarkupLanguage": "^1.5.3",
     "BS Utils": "^1.10.0"
   },
