@@ -143,5 +143,9 @@ namespace IForgor
 			saberColor = color;
 			saberBgImage.color = color;
 		}
+
+		public void DestroyGroup() {
+			Destroy(this.gameObject);
+		}
 	}
 }

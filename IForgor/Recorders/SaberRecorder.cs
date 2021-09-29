@@ -5,11 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using Zenject;
 
 namespace IForgor
 {
-	internal class SaberRecorder : MonoBehaviour
+	internal class SaberRecorder : IInitializable, IDisposable
 	{
+
 		public static SaberRecorder instance { get; private set; }
 
 		private Saber _saberA;
@@ -18,17 +20,16 @@ namespace IForgor
 		public float saberAAngle = 0.0f;
 		public float saberBAngle = 0.0f;
 
-		private void Awake() {
-			if (instance != null) {
-				Destroy(instance);
-			}
+		public void Initialize() {
 			instance = this;
-		}
 
-		private void OnEnable() {
 			SaberManager saberManager = Resources.FindObjectsOfTypeAll<SaberManager>().First();
 			_saberA = saberManager.leftSaber;
 			_saberB = saberManager.rightSaber;
+		}
+
+		public void Dispose() { 
+			
 		}
 
 		public void RecordSaberAngles() {

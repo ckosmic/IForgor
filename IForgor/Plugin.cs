@@ -8,7 +8,7 @@ using IPA.Config.Stores;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using IPALogger = IPA.Logging.Logger;
-using BS_Utils.Utilities;
+using SiraUtil.Zenject;
 
 namespace IForgor
 {
@@ -25,43 +25,10 @@ namespace IForgor
 		/// [Init] methods that use a Constructor or called before regular methods like InitWithConfig.
 		/// Only use [Init] with one Constructor.
 		/// </summary>
-		public void Init(IPALogger logger) {
+		public void Init(IPALogger logger, Zenjector zenject) {
 			Instance = this;
 			Log = logger;
-		}
-
-		#region BSIPA Config
-		//Uncomment to use BSIPA's config
-		/*
-        [Init]
-        public void InitWithConfig(Config conf)
-        {
-            Configuration.PluginConfig.Instance = conf.Generated<Configuration.PluginConfig>();
-            Log.Debug("Config loaded");
-        }
-        */
-		#endregion
-
-		[OnStart]
-		public void OnApplicationStart() {
-			BSEvents.gameSceneLoaded += OnGameSceneLoaded;
-
-		}
-
-		[OnExit]
-		public void OnApplicationQuit() {
-			BSEvents.gameSceneLoaded -= OnGameSceneLoaded;
-		}
-
-		private void OnGameSceneLoaded() {
-			new GameObject("IFSaberRecorder").AddComponent<SaberRecorder>();
-			new GameObject("IFNoteRecorder").AddComponent<NoteRecorder>();
-			new GameObject("IFPauseUIManager").AddComponent<PauseUIManager>();
-
-			NoteRecorder.instance.noteAData = null;
-			NoteRecorder.instance.noteBData = null;
-			NoteRecorder.instance.noteACutInfo = null;
-			NoteRecorder.instance.noteBCutInfo = null;
+			zenject.OnGame<IFGameInstaller>(false).OnlyForStandard();
 		}
 	}
 }

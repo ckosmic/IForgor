@@ -1,5 +1,4 @@
-﻿using BS_Utils.Utilities;
-using IPA.Utilities;
+﻿using IPA.Utilities;
 using IForgor.Utils;
 using System;
 using System.Collections.Generic;
@@ -9,13 +8,16 @@ using System.Threading.Tasks;
 using UnityEngine;
 using HMUI;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using Zenject;
 
 namespace IForgor
 {
-	internal class PauseUIManager : MonoBehaviour
+	internal class PauseUIManager : IInitializable, IDisposable
 	{
 		private Transform _pauseCanvasTransform;
 		private ColorManager _colorManager;
+		private PauseController _pauseController;
 
 		private bool _groupANullified = true;
 		private bool _groupBNullified = true;
@@ -78,18 +80,18 @@ namespace IForgor
 			groupB.transform.localPosition = new Vector3(5.0f, 0.0f, 0.0f);
 		}
 
-		private void OnEnable() {
+		public void Initialize() {
 			if (_colorManager == null)
 				_colorManager = IPA.Utilities.ReflectionUtil.GetField<ColorManager, ColorNoteVisuals>(Resources.FindObjectsOfTypeAll<ColorNoteVisuals>().FirstOrDefault(), "_colorManager");
+			if(_pauseController == null)
+				_pauseController = Resources.FindObjectsOfTypeAll<PauseController>().LastOrDefault();
 
 			CreateUIElements();
-			BSEvents.songPaused += OnPause;
+			_pauseController.didPauseEvent += OnPause;
 		}
 
-		private void OnDisable() {
-			Destroy(groupA);
-			Destroy(groupB);
-			BSEvents.songPaused -= OnPause;
+		public void Dispose() {
+			_pauseController.didPauseEvent -= OnPause;
 		}
 
 		public void OnPause() {
