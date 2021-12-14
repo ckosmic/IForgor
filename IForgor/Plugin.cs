@@ -28,7 +28,7 @@ namespace IForgor
 		public void Init(IPALogger logger, Zenjector zenject) {
 			Instance = this;
 			Log = logger;
-			zenject.OnGame<IFGameInstaller>(false).OnlyForStandard();
+			zenject.Install<IFGameInstaller>(Location.StandardPlayer);
 		}
 	}
 }
