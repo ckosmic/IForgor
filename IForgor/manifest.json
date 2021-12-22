@@ -7,8 +7,7 @@
   "description": "A mod that displays the last notes and saber angles before you paused in the pause menu.",
   "gameVersion": "1.19.0",
   "dependsOn": {
-    "BSIPA": "^4.2.0",
-    "BeatSaberMarkupLanguage": "^1.6.0",
+    "BSIPA": "^4.2.1",
     "SiraUtil": "^3.0.0"
   },
   "links": {
