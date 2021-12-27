@@ -4,7 +4,7 @@ using SiraUtil.Zenject;
 
 namespace IForgor
 {
-	[Plugin(RuntimeOptions.SingleStartInit)]
+	[Plugin(RuntimeOptions.DynamicInit)]
 	public class Plugin
 	{
 		[Init]
