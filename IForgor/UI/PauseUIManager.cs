@@ -1,14 +1,10 @@
 ﻿using IPA.Utilities;
 using IForgor.Utils;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using HMUI;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace IForgor
@@ -57,7 +53,7 @@ namespace IForgor
 			background.type = Image.Type.Sliced;
 			background.color = new Color(0.125f, 0.125f, 0.125f, 0.75f);
 			background.material = mat_UINoGlow;
-			IPA.Utilities.ReflectionUtil.SetField<ImageView, float>(background, "_skew", 0.18f);
+			ReflectionUtil.SetField<ImageView, float>(background, "_skew", 0.18f);
 			background.SetAllDirty();
 
 			groupA = new GameObject("IFUIBloq_TypeA").AddComponent<UIGroup>();
@@ -82,7 +78,7 @@ namespace IForgor
 
 		public void Initialize() {
 			if (_colorManager == null)
-				_colorManager = IPA.Utilities.ReflectionUtil.GetField<ColorManager, ColorNoteVisuals>(Resources.FindObjectsOfTypeAll<ColorNoteVisuals>().FirstOrDefault(), "_colorManager");
+				_colorManager = ReflectionUtil.GetField<ColorManager, ColorNoteVisuals>(Resources.FindObjectsOfTypeAll<ColorNoteVisuals>().FirstOrDefault(), "_colorManager");
 			if(_pauseController == null)
 				_pauseController = Resources.FindObjectsOfTypeAll<PauseController>().LastOrDefault();
 

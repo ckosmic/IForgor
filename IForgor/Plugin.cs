@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using IPA;
-using IPA.Config;
-using IPA.Config.Stores;
-using UnityEngine.SceneManagement;
-using UnityEngine;
+﻿using IPA;
 using IPALogger = IPA.Logging.Logger;
 using SiraUtil.Zenject;
 
