@@ -60,13 +60,13 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')"/>
-        <None Include="IForgor.csproj.user" Condition="Exists('IForgor.csproj.user')"/>
+        <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />
+        <None Include="IForgor.csproj.user" Condition="Exists('IForgor.csproj.user')" />
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Include="manifest.json"/>
-        <EmbeddedResource Include="Resources\*.png"/>
+        <EmbeddedResource Include="manifest.json" />
+        <EmbeddedResource Include="Resources\*.png" />
     </ItemGroup>
 
     <ItemGroup>

@@ -5,23 +5,18 @@ namespace IForgor
 {
 	internal class NoteRecorder : IInitializable, IDisposable
 	{
-
-		public static NoteRecorder instance { get; private set; }
+		private readonly BeatmapObjectManager _beatmapObjectManager;
 
 		public NoteData noteAData;
 		public NoteData noteBData;
 		public NoteCutInfo? noteACutInfo;
 		public NoteCutInfo? noteBCutInfo;
 
-		private BeatmapObjectManager _beatmapObjectManager;
-
 		public NoteRecorder(BeatmapObjectManager beatmapObjectManager) {
 			_beatmapObjectManager = beatmapObjectManager;
 		}
 
 		public void Initialize() {
-			instance = this;
-
 			noteAData = null;
 			noteBData = null;
 			noteACutInfo = null;
@@ -46,15 +41,16 @@ namespace IForgor
 		private void ProcessNote(NoteData noteData, NoteCutInfo? noteCutInfo) {
 			if (noteData != null) {
 				if (noteData.colorType == ColorType.ColorA)
+				{
 					noteAData = noteData;
+					noteACutInfo = noteCutInfo;
+				}
 				else if (noteData.colorType == ColorType.ColorB)
+				{
 					noteBData = noteData;
+					noteBCutInfo = noteCutInfo;
+				}
 			}
-
-			if (noteData.colorType == ColorType.ColorA)
-				noteACutInfo = noteCutInfo;
-			else if (noteData.colorType == ColorType.ColorB)
-				noteBCutInfo = noteCutInfo;
 		}
 	}
 }

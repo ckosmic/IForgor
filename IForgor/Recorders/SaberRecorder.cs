@@ -1,39 +1,27 @@
-﻿using System;
-using System.Linq;
-using UnityEngine;
-using Zenject;
+﻿using UnityEngine;
 
 namespace IForgor
 {
-	internal class SaberRecorder : IInitializable, IDisposable
+	internal class SaberRecorder
 	{
-
-		public static SaberRecorder instance { get; private set; }
-
-		private Saber _saberA;
-		private Saber _saberB;
+		private readonly Saber _saberA;
+		private readonly Saber _saberB;
 
 		public float saberAAngle = 0.0f;
 		public float saberBAngle = 0.0f;
 
-		public void Initialize() {
-			instance = this;
-
-			SaberManager saberManager = Resources.FindObjectsOfTypeAll<SaberManager>().First();
+		public SaberRecorder(SaberManager saberManager)
+		{
 			_saberA = saberManager.leftSaber;
 			_saberB = saberManager.rightSaber;
 		}
 
-		public void Dispose() { 
-			
-		}
-
 		public void RecordSaberAngles() {
-			RecordSaberAngle(_saberA, ref saberAAngle);
-			RecordSaberAngle(_saberB, ref saberBAngle);
+			RecordSaberAngle(_saberA, out saberAAngle);
+			RecordSaberAngle(_saberB, out saberBAngle);
 		}
 
-		public void RecordSaberAngle(Saber saber, ref float saberAngle) {
+		private static void RecordSaberAngle(Saber saber, out float saberAngle) {
 			Vector3 saberVector = saber.saberBladeTopPos - saber.saberBladeBottomPos;
 			saberVector.z = 0;
 			saberVector.Normalize();

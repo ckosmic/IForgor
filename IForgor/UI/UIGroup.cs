@@ -1,11 +1,14 @@
 ﻿using HMUI;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace IForgor
 {
 	internal class UIGroup : MonoBehaviour
 	{
+		private AssetLoader _assetLoader;
+
 		public ImageView bloqImage;
 		public ImageView directionImage;
 		public ImageView cutAngleImage;
@@ -16,16 +19,21 @@ namespace IForgor
 		public Color noteColor;
 		public Color saberColor;
 
+		[Inject]
+		internal void Construct(AssetLoader assetLoader)
+		{
+			_assetLoader = assetLoader;
+		}
 
 		public void Initialize() {
 			bloqImage = new GameObject("IFBloqImage").AddComponent<ImageView>();
 			bloqImage.transform.SetParent(transform, false);
 			bloqImage.rectTransform.localScale = Vector3.one * 0.075f;
 			bloqImage.rectTransform.localPosition = Vector3.zero;
-			bloqImage.sprite = PauseUIManager.spr_bloq;
+			bloqImage.sprite = _assetLoader.spr_bloq;
 			bloqImage.type = Image.Type.Simple;
 			bloqImage.color = Color.red;
-			bloqImage.material = PauseUIManager.mat_UINoGlow;
+			bloqImage.material = _assetLoader.mat_UINoGlow;
 			//ReflectionUtil.SetField<ImageView, float>(bloqImage, "_skew", 0.18f);
 			//bloqImage.SetVerticesDirty();
 			// Skew cringe? ^^
@@ -34,44 +42,44 @@ namespace IForgor
 			directionImage.transform.SetParent(bloqImage.transform, false);
 			directionImage.rectTransform.localScale = Vector3.one;
 			directionImage.rectTransform.localPosition = Vector3.zero;
-			directionImage.sprite = PauseUIManager.spr_dot;
+			directionImage.sprite = _assetLoader.spr_dot;
 			directionImage.type = Image.Type.Simple;
 			directionImage.color = Color.white;
-			directionImage.material = PauseUIManager.mat_UINoGlow;
+			directionImage.material = _assetLoader.mat_UINoGlow;
 
 			cutAngleImage = new GameObject("IFCutAngleImage").AddComponent<ImageView>();
 			cutAngleImage.transform.SetParent(bloqImage.transform, false);
 			cutAngleImage.rectTransform.localScale = Vector3.one * 1.2f;
 			cutAngleImage.rectTransform.localPosition = Vector3.zero;
-			cutAngleImage.sprite = PauseUIManager.spr_cut_arrow;
+			cutAngleImage.sprite = _assetLoader.spr_cut_arrow;
 			cutAngleImage.type = Image.Type.Simple;
 			cutAngleImage.color = new Color(1.0f, 1.0f, 1.0f, 0.75f);
-			cutAngleImage.material = PauseUIManager.mat_UINoGlow;
+			cutAngleImage.material = _assetLoader.mat_UINoGlow;
 			cutAngleImage.enabled = false;
 
 			saberBgImage = new GameObject("IFSaberBGImage").AddComponent<ImageView>();
 			saberBgImage.transform.SetParent(transform, false);
 			saberBgImage.rectTransform.localScale = Vector3.one * 0.075f;
 			saberBgImage.rectTransform.localPosition = new Vector3(0.0f, 10.0f, 0.0f);
-			saberBgImage.sprite = PauseUIManager.spr_saber_bg;
+			saberBgImage.sprite = _assetLoader.spr_saber_bg;
 			saberBgImage.type = Image.Type.Simple;
 			saberBgImage.color = Color.white;
-			saberBgImage.material = PauseUIManager.mat_UINoGlow;
+			saberBgImage.material = _assetLoader.mat_UINoGlow;
 
 			saberFgImage = new GameObject("IFSaberFGImage").AddComponent<ImageView>();
 			saberFgImage.transform.SetParent(saberBgImage.transform, false);
 			saberFgImage.rectTransform.localScale = Vector3.one;
 			saberFgImage.rectTransform.localPosition = Vector3.zero;
-			saberFgImage.sprite = PauseUIManager.spr_saber_fg;
+			saberFgImage.sprite = _assetLoader.spr_saber_fg;
 			saberFgImage.type = Image.Type.Simple;
 			saberFgImage.color = Color.white;
-			saberFgImage.material = PauseUIManager.mat_UINoGlow;
+			saberFgImage.material = _assetLoader.mat_UINoGlow;
 		}
 
 		public void SetNoteData(NoteData noteData) {
 			this.noteData = noteData;
 
-			directionImage.sprite = PauseUIManager.spr_arrow;
+			directionImage.sprite = _assetLoader.spr_arrow;
 
 			RectTransform bloqRootTransform = bloqImage.rectTransform;
 			switch (noteData.cutDirection) {
@@ -101,7 +109,7 @@ namespace IForgor
 					break;
 				case NoteCutDirection.Any:
 					bloqRootTransform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
-					directionImage.sprite = PauseUIManager.spr_dot;
+					directionImage.sprite = _assetLoader.spr_dot;
 					break;
 			}
 		}
