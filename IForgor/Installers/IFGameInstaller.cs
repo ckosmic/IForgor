@@ -1,6 +1,8 @@
-﻿using Zenject;
+﻿using IForgor.Recorders;
+using IForgor.UI;
+using Zenject;
 
-namespace IForgor
+namespace IForgor.Installers
 {
 	internal class IFGameInstaller : Installer<IFGameInstaller>
 	{

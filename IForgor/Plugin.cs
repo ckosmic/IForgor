@@ -1,4 +1,5 @@
-﻿using IPA;
+﻿using IForgor.Installers;
+using IPA;
 using SiraUtil.Zenject;
 
 namespace IForgor

@@ -1,12 +1,13 @@
-﻿using IPA.Utilities;
-using System;
+﻿using System;
 using System.Linq;
-using UnityEngine;
 using HMUI;
+using IForgor.Recorders;
+using IPA.Utilities;
+using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace IForgor
+namespace IForgor.UI
 {
 	internal class PauseUIManager : IInitializable, IDisposable
 	{

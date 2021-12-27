@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace IForgor
+namespace IForgor.Recorders
 {
 	internal class SaberRecorder
 	{

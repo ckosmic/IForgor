@@ -1,7 +1,7 @@
 ﻿using System;
 using Zenject;
 
-namespace IForgor
+namespace IForgor.Recorders
 {
 	internal class NoteRecorder : IInitializable, IDisposable
 	{

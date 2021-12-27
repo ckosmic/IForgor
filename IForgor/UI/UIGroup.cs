@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace IForgor
+namespace IForgor.UI
 {
 	internal class UIGroup : MonoBehaviour
 	{

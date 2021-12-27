@@ -1,6 +1,7 @@
+using IForgor.UI;
 using Zenject;
 
-namespace IForgor
+namespace IForgor.Installers
 {
     public class IFAppInstaller : Installer
     {
