@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using IForgor.Recorders;
+using IForgor.UI;
 using Zenject;
 
-namespace IForgor
+namespace IForgor.Installers
 {
 	internal class IFGameInstaller : Installer<IFGameInstaller>
 	{
 		public override void InstallBindings() {
-			Container.BindInterfacesAndSelfTo<SaberRecorder>().AsSingle();
+			Container.Bind<SaberRecorder>().AsSingle();
 			Container.BindInterfacesAndSelfTo<NoteRecorder>().AsSingle();
-			Container.BindInterfacesAndSelfTo<PauseUIManager>().AsSingle();
+			Container.BindInterfacesTo<PauseUIManager>().AsSingle();
+			Container.Bind<UIGroup>().AsTransient();
 		}
 	}
 }
