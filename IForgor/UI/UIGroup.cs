@@ -115,11 +115,6 @@ namespace IForgor.UI
 						bloqImage.sprite = _assetLoader.spr_slider;
 						directionImage.sprite = _assetLoader.spr_slider_dots;
 					}
-					else
-                    {
-						bloqImage.sprite = _assetLoader.spr_bloq;
-						directionImage.sprite = _assetLoader.spr_dot;
-					}
 					break;
 			}
 		}

@@ -34,7 +34,7 @@ namespace IForgor.Recorders
 		}
 
 		private void OnNoteWasCut(NoteController noteController, in NoteCutInfo noteCutInfo) {
-			if (noteController.noteData.colorType == ColorType.None) return;
+			if (noteController.noteData == null || noteController.noteData.colorType == ColorType.None) return;
 			if (!noteCutInfo.saberTypeOK)
 			{
 				ProcessNote(noteController.noteData, null);
