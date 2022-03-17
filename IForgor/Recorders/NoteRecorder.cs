@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 using Zenject;
 
 namespace IForgor.Recorders
@@ -32,24 +34,30 @@ namespace IForgor.Recorders
 		}
 
 		private void OnNoteWasCut(NoteController noteController, in NoteCutInfo noteCutInfo) {
-			ProcessNote(noteController.noteData, noteCutInfo);
+			if (noteController.noteData == null || noteController.noteData.colorType == ColorType.None) return;
+			if (!noteCutInfo.saberTypeOK)
+			{
+				ProcessNote(noteController.noteData, null);
+			}
+			else
+			{
+				ProcessNote(noteController.noteData, noteCutInfo);
+			}
 		}
 		private void OnNoteWasMissed(NoteController noteController) {
 			ProcessNote(noteController.noteData, null);
 		}
 
 		private void ProcessNote(NoteData noteData, NoteCutInfo? noteCutInfo) {
-			if (noteData != null) {
-				if (noteData.colorType == ColorType.ColorA)
-				{
-					noteAData = noteData;
-					noteACutInfo = noteCutInfo;
-				}
-				else if (noteData.colorType == ColorType.ColorB)
-				{
-					noteBData = noteData;
-					noteBCutInfo = noteCutInfo;
-				}
+			if (noteData.colorType == ColorType.ColorA)
+			{
+				noteAData = noteData;
+				noteACutInfo = noteCutInfo;
+			}
+			else if (noteData.colorType == ColorType.ColorB)
+			{
+				noteBData = noteData;
+				noteBCutInfo = noteCutInfo;
 			}
 		}
 	}

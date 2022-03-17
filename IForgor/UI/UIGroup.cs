@@ -79,6 +79,7 @@ namespace IForgor.UI
 		public void SetNoteData(NoteData noteData) {
 			this.noteData = noteData;
 
+			bloqImage.sprite = _assetLoader.spr_bloq;
 			directionImage.sprite = _assetLoader.spr_arrow;
 
 			RectTransform bloqRootTransform = bloqImage.rectTransform;
@@ -108,8 +109,12 @@ namespace IForgor.UI
 					bloqRootTransform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 135f));
 					break;
 				case NoteCutDirection.Any:
-					bloqRootTransform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
-					directionImage.sprite = _assetLoader.spr_dot;
+					bloqRootTransform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, noteData.cutDirectionAngleOffset));
+					if (noteData.gameplayType == NoteData.GameplayType.BurstSliderElement)
+					{
+						bloqImage.sprite = _assetLoader.spr_slider;
+						directionImage.sprite = _assetLoader.spr_slider_dots;
+					}
 					break;
 			}
 		}

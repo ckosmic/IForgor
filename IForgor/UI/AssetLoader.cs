@@ -8,8 +8,10 @@ namespace IForgor.UI
     internal class AssetLoader
     {
         public Sprite spr_bloq { get; }
+        public Sprite spr_slider { get; }
         public Sprite spr_arrow { get; }
         public Sprite spr_dot { get; }
+        public Sprite spr_slider_dots { get; }
         public Sprite spr_cut_arrow { get; }
         public Sprite spr_saber_bg { get; }
         public Sprite spr_saber_fg { get; }
@@ -19,8 +21,10 @@ namespace IForgor.UI
         public AssetLoader()
         {
             spr_bloq = LoadSpriteFromResource("IForgor.Resources.bloq.png");
+            spr_slider = LoadSpriteFromResource("IForgor.Resources.slider.png");
             spr_arrow = LoadSpriteFromResource("IForgor.Resources.arrow.png");
             spr_dot = LoadSpriteFromResource("IForgor.Resources.dot.png");
+            spr_slider_dots = LoadSpriteFromResource("IForgor.Resources.slider_dots.png");
             spr_cut_arrow = LoadSpriteFromResource("IForgor.Resources.cut_arrow.png");
             spr_saber_bg = LoadSpriteFromResource("IForgor.Resources.saber_bg.png");
             spr_saber_fg = LoadSpriteFromResource("IForgor.Resources.saber_fg.png");
